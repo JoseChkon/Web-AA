@@ -10,15 +10,14 @@ export default function ButtonGoogle() {
 
   const requestCall = () => instance.post("/auth/google");
   const navigate = (href) =>{
-    window.location.href = href
+    window.open('http://localhost:3000/login/access', '_blank')
   }
 
   return (
     <Button
       onClick={async () => {
-        const res = await requestCall();
-        console.log(res)
-        navigate(res.data.url)
+  
+        navigate()
       }}
     />
   );
