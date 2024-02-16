@@ -42,13 +42,18 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/",
-    failureRedirect: "/login",
+    successRedirect: "http://localhost:5173/login/success",
+    failureRedirect: "http://localhost:5173/login/success",
   }),
   (req, res) => {
     res.status(200);
   }
 );
+
+router.get("/auth/user", (req, res)=>{
+  console.log(req.user)
+  res.json(req.user)
+})
 
 passport.serializeUser(function (user, cb) {
   cb(null, user);
