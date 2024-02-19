@@ -4,6 +4,9 @@ import Products from "./pages/Products";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { LoginSuccess } from "./components/Special/LoginSuccess";
+import KeepLogin from "./context/state/KeepLogin";
+import ProtectedRoutes from "./context/state/ProtectedRoutes";
+
 export default function App() {
   return (
     <BrowserRouter>
