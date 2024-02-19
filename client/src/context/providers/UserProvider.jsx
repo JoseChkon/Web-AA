@@ -7,13 +7,13 @@ export const useUser = ()=>{
     return context
 }
 
-export default function userProvider({children}) {
-    const [isAuthenticate, setAuthenticate] = useState(false)
+export default function UserProvider({children}) {
+    const [isAuthenticate, setIsAuthenticate] = useState(false)
     const [userData, setUserData] = useState({})
 
     return <userContext.Provider value={{
         isAuthenticate,
-        setAuthenticate,
+        setIsAuthenticate,
         userData,
         setUserData
     }}>{children}</userContext.Provider>
