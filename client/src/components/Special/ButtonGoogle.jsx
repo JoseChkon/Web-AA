@@ -3,6 +3,8 @@ import { Button } from "@nextui-org/react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
 
+import Google from "./Google";
+
 export default function ButtonGoogle() {
   const navigate = useNavigate()
 
@@ -20,10 +22,10 @@ export default function ButtonGoogle() {
   }
 
   return (
-    <Button
+    <Button className="w-full bg-white rounded-md text-sm font-semibold text-gray-400 shadow-sm hover:bg-gray-100 hover:text-gray-500 "
       onClick={async () => {
         let timer = null;
-        const googleLoginURL = "http://localhost:3000/login/access";
+        const googleLoginURL = "http://localhost:3000/auth/google";
         const newWindow = window.open(
           googleLoginURL,
           "_blank",
@@ -42,6 +44,9 @@ export default function ButtonGoogle() {
         }
     
       }}
-    />
+    >
+      <Google/>
+      <p>Continuar con google</p>
+    </Button>
   );
 }

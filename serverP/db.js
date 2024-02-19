@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose")
 
-const ConnectDB = () =>{
-    mongoose.connect(process.env.DB_URL)
+const ConnectDB = async () =>{
+    await mongoose.connect(process.env.DB_URL)
     console.log("Database running")
 }
 
-export default ConnectDB
+module.exports = ConnectDB

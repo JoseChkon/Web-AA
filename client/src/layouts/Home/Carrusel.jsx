@@ -8,7 +8,7 @@ export default function Gallery() {
       <div className="overflow-hidden w-full">
         <div className="flex whitespace-nowrap animate-scroll">
           {carouselBlogs.map((blog, index) => (
-            <Card blog={blog.id}/>
+            <Card blog={blog.id} key={blog.id}/>
           ))}
         </div>
       </div>

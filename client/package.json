@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@react-oauth/google": "^0.12.1",
     "axios": "^1.6.7",
     "framer-motion": "^11.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-button": "^0.7.2",
     "react-hook-form": "^7.49.3",
     "react-router-dom": "^6.22.0",
     "react-scripts": "^5.0.1",

@@ -1,9 +1,13 @@
-import express from "express"
-import morgan from "morgan"
-import requestRoute from "./routes/oAuth.js"
-import cors from "cors"
-import passport from "passport"
-import session from "express-session"
+var express = require("express")
+const session = require('express-session');
+var morgan = require("morgan")
+var cors = require("cors")
+
+require("dotenv").config()
+require("./controllers/google.js")
+
+const routes = require("./routes/index.js")
+const passport = require("passport");
 
 const app = express()
 
@@ -17,17 +21,16 @@ app.use(cors({
 }))
 
 app.use(session({
-    secret:"YOUR SECRET KEY",
+    secret: "Hi",
     resave:false,
     saveUninitialized:true
 }))
 
-// setuppassport
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session())
 
 app.use(morgan("dev"))
 
-app.use("/", requestRoute)
+app.use("/", routes)
 
-export default app
+module.exports = app

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose")
 
 const UserSchema = new mongoose.Schema({
     googleId:String,
@@ -7,4 +7,4 @@ const UserSchema = new mongoose.Schema({
     image:String
 },{timestamps:true})
 
-export default mongoose.model("User", UserSchema)
+module.exports = mongoose.model("User", UserSchema)

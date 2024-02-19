@@ -63,16 +63,18 @@ export default function Login() {
               type={isVisible ? "text" : "password"}
               className="max-w"
             />
-            <Button
-              type="submit"
-              color="primary"
-              className="w-full bg-pink-400 rounded-md text-sm font-semibold text-white shadow-sm hover:bg-pink-400"
-              variant="solid"
-            >
-              Sign in
-            </Button>
+            <div className="flex flex-col space-y-2">
+              <Button
+                type="submit"
+                color="primary"
+                className="w-full bg-pink-400 rounded-md text-sm font-semibold text-white shadow-sm hover:bg-pink-400"
+                variant="solid"
+              >
+                Sign in
+              </Button>
+              <ButtonGoogle />
+            </div>
           </form>
-          <ButtonGoogle/>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
