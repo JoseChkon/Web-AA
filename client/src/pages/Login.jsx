@@ -15,10 +15,6 @@ export default function Login() {
 
   const { handleSubmit, register } = useForm();
 
-  function navigate(url) {
-    window.location.href = url;
-  }
-
   const onSubmit = (data) => {
     console.log(data);
   };

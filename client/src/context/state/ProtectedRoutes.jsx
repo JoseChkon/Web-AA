@@ -1,16 +1,9 @@
-import React from 'react'
 import { useUser } from '../providers/UserProvider'
 import {Outlet} from 'react-router-dom'
+import { useState } from 'react'
 
 export default function ProtectedRoutes() {
     const {isAuthenticate} = useUser()
-    const [loanding, setLoanding] = useState(true)
 
-    const authenticate = async () =>{
-      await getUser()
-    }
-    
-    !isAuthenticate ? authenticate() : setLoanding(false)
-
-    return <Outlet/>
+    return isAuthenticate ? <Outlet/> : <h1>No autentificado</h1>
 }

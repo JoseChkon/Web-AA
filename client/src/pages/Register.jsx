@@ -7,6 +7,7 @@ import { EyeSlashFilledIcon } from "../components/EyeSlashFilledIcon";
 import { EyeFilledIcon } from "../components/EyeFilledIcon";
 import { Button } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
+import ButtonGoogle from "../components/Special/ButtonGoogle";
 
 export default function Register() {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -98,6 +99,7 @@ export default function Register() {
             >
               Sign in
             </Button>
+            <ButtonGoogle/>
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
@@ -109,6 +111,7 @@ export default function Register() {
             >
               sig in
             </Link>
+        
           </p>
         </div>
       </div>

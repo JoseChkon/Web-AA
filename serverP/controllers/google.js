@@ -28,10 +28,17 @@ passport.use(new GoogleStrategy({
 }))
 
 passport.serializeUser(function (user, done) {
-    done(null, user)
+   
+    done(null, user.id)
 })
 
-passport.deserializeUser(function (user, done) {
-    done(null, user)
+passport.deserializeUser(async function (id, done) {
+    const user = await userdb.findById(id)
+    console.log(user)
+
+    if (!user) {
+        return done(null, false);
+    }
+    return done(null, user);
 })
 

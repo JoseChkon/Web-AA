@@ -1,21 +1,11 @@
 import React from "react";
 import { Button } from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
 import Google from "./Google";
-import GetUser from "../../context/hooks/GetUser";
-import axios from "axios";
-import { useUser } from "../../context/providers/UserProvider";
 
 export default function ButtonGoogle() {
-  const reqUser = GetUser()
-  const {setIsAuthenticate, setUserData} = useUser()
-
-  const navigate = useNavigate();
-
-  const instance = axios.create({
-    withCredentials: true,
-    baseURL: "http://localhost:3000",
-  })
+  function navigate(url) {
+    window.location.href = url;
+  }
 
   return (
     <Button
@@ -32,14 +22,7 @@ export default function ButtonGoogle() {
         if (newWindow) {
           timer = setInterval(async () => {
             if (newWindow.closed) {
-              console.log("Yay we're authenticated")
-          
-              const res = await instance.get('auth/user')
-              setIsAuthenticate(true);
-              localStorage.setItem('UserData', JSON.stringify(res.data))
-              console.log(res)
-              navigate("/");
-
+              navigate("/"); 
               if (timer) clearInterval(timer);
             }
           }, 500);

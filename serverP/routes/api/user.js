@@ -1,11 +1,18 @@
-const express = require('express')
-const { isAuthenticate } = require('../../middleware/auth')
+const express = require("express");
+const { isAuthenticate } = require("../../middleware/auth");
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/auth/user", isAuthenticate, (req, res)=>{
-    console.log(req)
-    res.json(req.user)
-})
+router.get("/auth/user", isAuthenticate, (req, res) => {
+  res.json(req.user);
+});
 
-module.exports = router
+router.delete("/auth/logout", isAuthenticate, (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return res.json({ message: err });
+    }
+  });
+});
+
+module.exports = router;

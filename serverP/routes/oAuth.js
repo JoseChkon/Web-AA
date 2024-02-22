@@ -6,7 +6,12 @@ const router = express.Router()
 router.get("/auth/google", passport.authenticate('google', {scope: ['profile', 'email']}))
 
 router.get("/auth/google/callback", passport.authenticate("google", {
-  successRedirect: "http://localhost:5173/login/success"
+  successRedirect: "http://localhost:5173/login/success",
+  failureRedirect: "http://localhost:5173/login"
 }))
+
+router.get("/auth/logout", (req, res)=>{
+  req.logout()
+})
 
 module.exports = router;
