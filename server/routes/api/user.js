@@ -4,7 +4,7 @@ const { isAuthenticate } = require("../../middleware/auth");
 const router = express.Router();
 
 router.get("/auth/user", isAuthenticate, (req, res) => {
-  res.header('Access-Control-Allow-Origin', ['*'])
+  res.header('Access-Control-Allow-Origin', "https://frontend-h6od.onrender.com")
   res.json(req.user);
 });
 
