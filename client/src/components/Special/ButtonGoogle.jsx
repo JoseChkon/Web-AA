@@ -12,7 +12,7 @@ export default function ButtonGoogle() {
       className="w-full bg-white rounded-md text-sm font-semibold text-gray-400 shadow-sm hover:bg-gray-100 hover:text-gray-500 "
       onClick={async () => {
         let timer = null;
-        const googleLoginURL = "http://localhost:3000/auth/google";
+        const googleLoginURL = import.meta.env.VITE_BACKEND_GOOGLE_URI;
         const newWindow = window.open(
           googleLoginURL,
           "_blank",
