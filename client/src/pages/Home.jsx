@@ -11,7 +11,7 @@ export default function Home() {
       <Header/>
       <Info/>
       <JoinUs/>
-     
+     <Carrusel/>
       <Footer/>
     </div>
   )
