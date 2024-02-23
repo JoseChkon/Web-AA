@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useUser } from "../../context/providers/UserProvider";
 import GetUser from "../hooks/GetUser";
 import { useState } from "react";
+import {CircularProgress} from "@nextui-org/react";
 
 export default function KeepLogin({ children }) {
   const { isAuthenticate } = useUser();
@@ -25,5 +26,5 @@ export default function KeepLogin({ children }) {
     !isAuthenticate ? authenticate() : setLoading(false);
   }, [loading])
 
-  return loading ? 'Loading' : <Outlet />;
+  return loading ? <CircularProgress/> : <Outlet />;
 }

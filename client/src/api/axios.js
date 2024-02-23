@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
     withCredentials: true,
-    baseURL: "http://localhost:3000",
+    baseURL: import.meta.env.VITE_BACKEND_URI,
   });
 
   export default instance
