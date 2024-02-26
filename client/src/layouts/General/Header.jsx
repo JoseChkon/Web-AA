@@ -41,7 +41,7 @@ export default function Header() {
       ) : (
         <NavbarContent justify="end">
           <NavbarItem className="lg:flex">
-            <Link className="text-brown-300" href="/login">
+            <Link className="text-brown-300" href="/sigin">
               Login
             </Link>
           </NavbarItem>

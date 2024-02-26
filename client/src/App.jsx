@@ -13,7 +13,7 @@ export default function App() {
       <Routes>
         <Route element={<KeepLogin/>}>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/sigin" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route element={<ProtectedRoutes/>}>
             <Route path="/products" element={<Products />} />

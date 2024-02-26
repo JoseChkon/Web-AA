@@ -8,7 +8,7 @@ router.get("/auth/google", passport.authenticate('google', {scope: ['profile', '
 
 router.get("/auth/google/callback", passport.authenticate("google", {
   successRedirect: process.env.LOGIN_SUCCESS,
-  failureRedirect: "http://localhost:5173/login"
+  failureRedirect: "http://localhost:5173/sigin"
 }))
 
 router.post('/auth/register', registerController)
