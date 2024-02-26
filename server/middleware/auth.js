@@ -1,7 +1,10 @@
+const passport = require("passport")
+
 module.exports.isAuthenticate = (req, res, next) => {
-    if(req.isAuthenticated()){
+    if(req.isAuthenticated() ){
         return next()
-    } else (
+    } 
+    else (
         res.status(401).send('You must login first!')
     )
 }

@@ -8,6 +8,7 @@ import { EyeFilledIcon } from "../components/EyeFilledIcon";
 import { Button } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import ButtonGoogle from "../components/Special/ButtonGoogle";
+import { registerRequest } from "../api/user";
 
 export default function Register() {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -18,8 +19,9 @@ export default function Register() {
     window.location.href = url;
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await registerRequest(data)
+    navigate("/login")
   };
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -36,7 +38,7 @@ export default function Register() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <Input
-              {...register("Name")}
+              {...register("name")}
               type="text"
               variant="bordered"
               label="Name"

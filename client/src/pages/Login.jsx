@@ -8,15 +8,26 @@ import { EyeFilledIcon } from "../components/EyeFilledIcon";
 import { Button } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import ButtonGoogle from "../components/Special/ButtonGoogle";
+import { authenticate, loginRequest } from "../api/user";
+import { useUser } from "../context/providers/UserProvider";
 
 export default function Login() {
+  const {setToken} = useUser()
   const [isVisible, setIsVisible] = React.useState(false);
 
+  function navigate(url) {
+    window.location.href = url;
+  }
 
   const { handleSubmit, register } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await loginRequest(data)
+    const token = "bearer " + res.data.token
+    console.log(token)
+    await authenticate(token)
+
+    navigate("/")
   };
 
   const toggleVisibility = () => setIsVisible(!isVisible);

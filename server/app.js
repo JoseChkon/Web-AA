@@ -5,6 +5,7 @@ var cors = require("cors")
 
 require("dotenv").config()
 require("./controllers/google.js")
+require("./controllers/commonAuth.js")
 
 const routes = require("./routes/index.js")
 const passport = require("passport");
@@ -30,13 +31,6 @@ app.use(passport.initialize());
 app.use(passport.session())
 
 app.use(morgan("dev"))
-
-app.use((req, res, next) => {
-    res.append('Access-Control-Allow-Origin', "https://frontend-h6od.onrender.com/");
-    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.append('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
 
 app.use("/", routes)
 
